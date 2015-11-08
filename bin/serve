@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/params'
+
+if ARGV.include?('-h')
+  STDERR.puts "Usage: #{File.basename($0)} [BIND_ADDR [BIND_PORT]]"
+  exit 1
+end
+
+Params::Server.set :bind, ARGV.fetch(0) if ARGV[0]
+Params::Server.set :port, ARGV.fetch(1) if ARGV[1]
+
+Params::Server.run!

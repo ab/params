@@ -1,0 +1,15 @@
+Method: <%= request.request_method %>
+URL: <%= request.url.inspect %>
+
+query_string: <%= request.query_string.inspect %>
+
+GET:
+  <%= pp(request.GET) %>
+
+body:
+  <%= request.body.read.inspect %>
+
+POST:
+  <%= pp(request.POST) %>
+
+
