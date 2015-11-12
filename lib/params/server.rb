@@ -1,11 +1,8 @@
-require 'sinatra/multi_route'
 require 'json'
 require 'pp'
 
 module Params
   class Server < Sinatra::Base
-    register Sinatra::MultiRoute
-
     set :bind, '127.0.0.1'
     set :port, 6000
     disable :show_exceptions
@@ -19,8 +16,7 @@ module Params
       halt 200, {'Content-Type' => 'text/plain'}, erb(:show_params)
     end
 
-
-
+    # # requires Sinatra::MultiRoute (sinatra/multi_route)
     # route :head, :delete, :get, :options, :patch, :post, :put, '/' do
     #   halt 200, {'Content-Type' => 'text/plain'}, erb(:show_params)
     # end
