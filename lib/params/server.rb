@@ -4,7 +4,7 @@ require 'pp'
 module Params
   class Server < Sinatra::Base
     set :bind, '127.0.0.1'
-    set :port, 6000
+    set :port, 8000
     disable :show_exceptions
     enable :logging, :dump_errors
 
