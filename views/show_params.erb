@@ -1,10 +1,17 @@
 Method: <%= request.request_method %>
 URL: <%= request.url.inspect %>
 
+Headers:<%
+get_request_headers.each do |k, v|
+%>
+  <%= k %>: <%= v.inspect %><%
+end %>
+
 query_string: <%= request.query_string.inspect %>
+decoded:      <%= CGI.unescape(request.query_string).inspect %>
 
 GET:
-  <%= pp(request.GET) %>
+  <%= pp(request.GET) %><%= # JSON.pretty_generate(request.GET) %>
 
 body:
   <%= request.body.read.inspect %>
