@@ -11,7 +11,7 @@ query_string: <%= request.query_string.inspect %>
 decoded:      <%= CGI.unescape(request.query_string).inspect %>
 
 GET:
-  <%= pp(request.GET) %><%= # JSON.pretty_generate(request.GET) %>
+  <%= pp(request.GET) %><%= JSON.pretty_generate(request.GET); '' %>
 
 body:
   <%= request.body.read.inspect %>
