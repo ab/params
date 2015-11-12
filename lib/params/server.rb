@@ -22,6 +22,10 @@ module Params
     #   halt 200, {'Content-Type' => 'text/plain'}, erb(:show_params)
     # end
 
+    get(/\A\/(test|form)(\.html)?\z/) do
+      erb(:form)
+    end
+
     helpers do
       def get_request_headers
         request.env.find_all {|k, v| k.start_with?('HTTP_') }.map {|k, v|
