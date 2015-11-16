@@ -24,6 +24,13 @@ module Params
     # end
 
     get(/\A\/(test|form)(\.html)?\z/) do
+      @action_target = './'
+
+      if params[:port]
+        port = Integer(params[:port])
+        @action_target = "//#{request.host}:#{port}/"
+      end
+
       erb(:form)
     end
 
