@@ -1,5 +1,6 @@
 require 'json'
 require 'pp'
+require 'set'
 
 module Params
   class Server < Sinatra::Base
@@ -27,9 +28,19 @@ module Params
     end
 
     helpers do
+      # A set of headers that rack does not prefix with `HTTP_`.
+      # These headers are treated specially by the CGI RFC3875.
+      UnprefixedHeaders = %w{CONTENT_TYPE CONTENT_LENGTH}.to_set
+
+      # Get HTTP request headers.
+      #
+      # @return [Array<Array(String, String)>] Headers as [key, value]
       def get_request_headers
-        request.env.find_all {|k, v| k.start_with?('HTTP_') }.map {|k, v|
-          [k.split('_')[1..-1].map(&:downcase).map(&:capitalize).join('-'),
+        request.env.find_all {|k, v|
+          UnprefixedHeaders.include?(k) || k.start_with?('HTTP_')
+        }.map {|k, v|
+          range = UnprefixedHeaders.include?(k) ? 0..-1 : 1..-1
+          [k.split('_')[range].map(&:downcase).map(&:capitalize).join('-'),
            v]
         }
       end
