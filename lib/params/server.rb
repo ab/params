@@ -1,6 +1,6 @@
+# frozen_string_literal: true
+
 require 'json'
-require 'pp'
-require 'set'
 
 module Params
   class Server < Sinatra::Base
@@ -23,7 +23,7 @@ module Params
     #   halt 200, {'Content-Type' => 'text/plain'}, erb(:show_params)
     # end
 
-    get(/\A\/(test|form)(\.html)?\z/) do
+    get(%r{/(test|form)(\.html)?}) do
       @action_target = './'
 
       if params[:port]
