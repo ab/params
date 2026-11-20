@@ -1,36 +1,46 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    base64 (0.3.0)
     coderay (1.1.3)
-    daemons (1.4.1)
-    eventmachine (1.2.7)
-    method_source (1.0.0)
-    multi_json (1.15.0)
-    mustermann (2.0.2)
-      ruby2_keywords (~> 0.0.1)
-    pry (0.14.2)
+    io-console (0.9.5)
+    logger (1.7.0)
+    method_source (1.1.0)
+    multi_json (1.21.2)
+    mustermann (3.1.1)
+    nio4r (2.7.5)
+    pry (0.16.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    rack (2.2.8.1)
-    rack-protection (2.2.4)
-      rack
-    ruby2_keywords (0.0.5)
-    sinatra (2.2.4)
-      mustermann (~> 2.0)
-      rack (~> 2.2)
-      rack-protection (= 2.2.4)
+      reline (>= 0.6.0)
+    puma (8.1.2)
+      nio4r (~> 2.0)
+    rack (3.2.8)
+    rack-protection (4.2.2)
+      base64 (>= 0.1.0)
+      logger (>= 1.6.0)
+      rack (>= 3.0.0, < 4)
+    rack-session (2.1.2)
+      base64 (>= 0.1.0)
+      rack (>= 3.0.0)
+    rackup (2.3.1)
+      rack (>= 3)
+    reline (0.7.0)
+      io-console (~> 0.5)
+    sinatra (4.2.2)
+      logger (>= 1.6.0)
+      mustermann (~> 3.0)
+      rack (>= 3.0.0, < 4)
+      rack-protection (= 4.2.2)
+      rack-session (>= 2.0.0, < 3)
       tilt (~> 2.0)
-    sinatra-contrib (2.2.4)
-      multi_json
-      mustermann (~> 2.0)
-      rack-protection (= 2.2.4)
-      sinatra (= 2.2.4)
+    sinatra-contrib (4.2.2)
+      multi_json (>= 0.0.2)
+      mustermann (~> 3.0)
+      rack-protection (= 4.2.2)
+      sinatra (= 4.2.2)
       tilt (~> 2.0)
-    thin (1.8.2)
-      daemons (~> 1.0, >= 1.0.9)
-      eventmachine (~> 1.0, >= 1.0.4)
-      rack (>= 1, < 3)
-    tilt (2.3.0)
+    tilt (2.9.0)
 
 PLATFORMS
   ruby
@@ -38,12 +48,33 @@ PLATFORMS
 
 DEPENDENCIES
   pry
-  sinatra (~> 2.2)
-  sinatra-contrib (~> 2.2)
-  thin (~> 1.6)
+  puma
+  rackup
+  sinatra
+  sinatra-contrib
+
+CHECKSUMS
+  base64 (0.3.0) sha256=27337aeabad6ffae05c265c450490628ef3ebd4b67be58257393227588f5a97b
+  coderay (1.1.3) sha256=dc530018a4684512f8f38143cd2a096c9f02a1fc2459edcfe534787a7fc77d4b
+  io-console (0.9.5) sha256=83dd9bbf4c4680416629245b39cd4212eb5f4d9a4ea91804870c1f6b846414d5
+  logger (1.7.0) sha256=196edec7cc44b66cfb40f9755ce11b392f21f7967696af15d274dde7edff0203
+  method_source (1.1.0) sha256=181301c9c45b731b4769bc81e8860e72f9161ad7d66dd99103c9ab84f560f5c5
+  multi_json (1.21.2) sha256=245531eaf54bdba57aba515ff08b4503505c5e09911daa89c5a561e2f85bea8e
+  mustermann (3.1.1) sha256=4c6170c7234d5499c345562ba7c7dfe73e1754286dcc1abb053064d66a127198
+  nio4r (2.7.5) sha256=6c90168e48fb5f8e768419c93abb94ba2b892a1d0602cb06eef16d8b7df1dca1
+  pry (0.16.1) sha256=d92d82c86e7f2dc34beec6d2892d5cf5ea517eea22eed3ceabb38ee62a98accc
+  puma (8.1.2) sha256=3a6d9a34c9a4d0175eabd11b703939b5d43ebe08bc2534ac7dfd4df33a6ceedc
+  rack (3.2.8) sha256=1fecc85e463ebc7a2a945fff829ffcd549babeb1556384796fad946c28dc4ec7
+  rack-protection (4.2.2) sha256=0e75764dae462c4041544452ce568bb1f1ced556b791cd32ac479d0781065a99
+  rack-session (2.1.2) sha256=595434f8c0c3473ae7d7ac56ecda6cc6dfd9d37c0b2b5255330aa1576967ffe8
+  rackup (2.3.1) sha256=6c79c26753778e90983761d677a48937ee3192b3ffef6bc963c0950f94688868
+  reline (0.7.0) sha256=5b012d8e55dbf9d450f12bde2cf7d15ff546ae80b3f8f3b30e570d431815583d
+  sinatra (4.2.2) sha256=3a0e63c600eb65d7ad6fa0d597a9533f2870d1862cc63ab7b0f7f0ad449ad42f
+  sinatra-contrib (4.2.2) sha256=3d629cfb3647e363cfca6609d0dcde63aa45db664645fe947f0eeddb9cca1620
+  tilt (2.9.0) sha256=da5735d0280bba96e9a91041bb14aee435ccad5c17b0fa519249ae543d9aa3a5
 
 RUBY VERSION
-   ruby 3.2.3p157
+  ruby 4.0.10
 
 BUNDLED WITH
-   2.5.3
+  4.0.20
